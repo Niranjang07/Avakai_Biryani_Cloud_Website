@@ -1,0 +1,255 @@
+/* Reset + Box-sizing fix */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+}
+
+/* Home container */
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fixed, blurred Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Hidden navbar state */
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* Logo */
+.logo {
+  height: 50px;
+  border-radius: 6px;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: peachpuff;
+  text-shadow: 0 0 8px peachpuff;
+}
+
+/* Order button */
+.order-btn {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ffc107;
+  transition: 0.3s ease-in-out;
+}
+
+.order-btn:hover {
+  box-shadow: 0 0 25px #ffeb3b;
+}
+
+/* Contact popup */
+.contact-popup {
+  position: absolute;
+  top: 70px;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 999;
+}
+
+.contact-popup a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+/* Carousel */
+.carousel {
+  flex: 1;
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0;
+  animation: fadeInImage 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Dark overlay */
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+  z-index: 0;
+}
+
+/* Text */
+.slide-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 2.5rem;
+  max-width: 90%;
+  margin-top: auto;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px black;
+  animation: slideInText 1.5s ease-out;
+}
+
+@keyframes slideInText {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-text h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+}
+
+.slide-text p {
+  font-size: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.special-caption {
+  font-weight: 600;
+  color: #ffd700;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  text-shadow: 0 0 6px #000;
+}
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #ffc107;
+  box-shadow: 0 0 10px #ffc107;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .slide-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .slide-text p {
+    font-size: 1.1rem;
+  }
+
+  .order-btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .contact-popup {
+    right: 0.5rem;
+  }
+
+  .carousel-dots {
+    bottom: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}

@@ -1,81 +1,70 @@
-/* src/styles/catering.css */
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', sans-serif;
-}
-
 .catering-section {
-  width: 100vw;
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+  padding: 80px 40px;
+  background: linear-gradient(to bottom, #111, #000);
   color: white;
-  padding: 80px 40px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-snap-align: start;
-  overflow-y: auto;
-  box-sizing: border-box;
-  position: relative;
+  text-align: center;
 }
 
-.catering-section h1 {
-  font-size: 2.8rem;
-  margin-bottom: 2rem;
+.catering-section h2 {
+  font-size: 2.5rem;
   color: #ffc107;
-  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .catering-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
+  justify-items: center;
+  align-items: stretch;
 }
 
 .catering-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #1a1a1a;
   border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  max-width: 450px;
   padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .catering-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
 }
 
 .catering-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 12px;
   margin-bottom: 1rem;
 }
 
 .catering-card h3 {
   font-size: 1.5rem;
+  color: #ffcc00;
   margin-bottom: 0.5rem;
-  color: #ffeb3b;
 }
 
 .catering-card p {
   font-size: 1rem;
-  margin-bottom: 1rem;
   color: #ccc;
+  margin-bottom: 1rem;
 }
 
 .catering-card button {
   background-color: #ffc107;
-  border: none;
-  padding: 10px 20px;
+  color: #004080;
   font-weight: bold;
+  padding: 10px 20px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -85,17 +74,35 @@ html, body {
   background-color: #ffdb4d;
 }
 
-/* Responsive */
+/* ✅ Mobile Responsiveness */
 @media (max-width: 768px) {
   .catering-section {
-    padding: 60px 20px;
+    padding: 40px 10px;
   }
 
-  .catering-section h1 {
-    font-size: 2rem;
+  .catering-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .catering-card {
+    padding: 1rem;
   }
 
   .catering-card img {
-    height: 150px;
+    height: 160px;
+  }
+
+  .catering-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .catering-card p {
+    font-size: 0.95rem;
+  }
+
+  .catering-card button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
 }

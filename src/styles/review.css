@@ -1,0 +1,53 @@
+.review-section {
+  padding: 60px 20px 40px; /* Increased top padding */
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  margin-top: 100px; /* Added space from previous section */
+}
+
+.review-section h2 {
+  color: #ffc107;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.review-section textarea {
+  width: 90%;
+  max-width: 600px;
+  height: 100px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.review-section button {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.review-section button:hover {
+  background-color: #ffdb4d;
+}
+
+.submitted-reviews {
+  margin-top: 20px;
+}
+
+.single-review {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 600px;
+}

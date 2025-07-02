@@ -1,13 +1,12 @@
 // src/pages/menus/TiffinsMenu.jsx
 
-import React from 'react';
-import '../../styles/TiffinsMenu.css';
-import tiffinsBackground from '../../assets/images/edli.jpg'; // ✅ Background image for blur effect
+import React, { useEffect, useState } from 'react';
+import '../../styles/tiffinsMenu.css';
 
-// Optional image imports (if needed later)
 import vada from '../../assets/images/vada.jpg';
 import upma from '../../assets/images/upma.jpg';
-import poor from '../../assets/images/poori.jpg';
+import poori from '../../assets/images/poori.jpg';
+import edli from '../../assets/images/edli.jpg';
 import dosa from '../../assets/images/dosa.jpg';
 import guntapunugulu from '../../assets/images/guntapunugulu.jpg';
 
@@ -28,13 +27,33 @@ const tiffinsMenuData = {
   ]
 };
 
+const backgroundImages = [vada, upma, poori, edli, dosa, guntapunugulu];
+
 const TiffinsMenu = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div
-      className="tiffins-menu-page"
-      style={{ backgroundImage: `url(${tiffinsBackground})` }}
-    >
+    <div className="tiffins-menu-page">
+      <div className="background-slideshow">
+        {backgroundImages.map((img, index) => (
+          <div
+            key={index}
+            className={`bg-slide ${index === currentIndex ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+      </div>
+
       <div className="blur-overlay" />
+
       <h1 className="tiffins-title">Tiffins Menu</h1>
       <div className="tiffins-container">
         {Object.entries(tiffinsMenuData).map(([category, items]) => (

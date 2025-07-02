@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/TiffinsMenu.css';
+import '../../styles/tiffinsMenu.css';
 import sweetsBackground from '../../assets/images/sweets.jpg';
 
 const sweetsMenuData = {

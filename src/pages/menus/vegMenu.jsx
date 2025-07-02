@@ -1,6 +1,6 @@
 // src/pages/menus/VegMenu.jsx
 import React from 'react';
-import '../../styles/VegMenu.css';
+import '../../styles/vegMenu.css';
 import vegBackground from '../../assets/images/vegmeal.jpg'; // Ensure this path is correct
 
 const vegMenuData = {
